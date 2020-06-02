@@ -1,1 +1,1 @@
-This is a project to display black lives matter and related material.
+Our plan is to utilize the Twitter API to create a single page React application that fetches trending data from Twitter and posts it live. Specifically, we'll be analyzing and using results related to the BLM and George Floyd movement.
