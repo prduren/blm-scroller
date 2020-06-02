@@ -1,10 +1,12 @@
 import React from "react";
-import "./App.css";
+import { CssBaseline } from "@material-ui/core";
+import Routes from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <ul></ul>
+      <CssBaseline />
+      {Routes}
     </div>
   );
 }
