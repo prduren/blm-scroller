@@ -1,1 +1,1 @@
-Our plan is to utilize the Twitter API to create a single page React application that fetches trending data from Twitter and posts it live. Specifically, we'll be analyzing and using results related to the BLM and George Floyd movement.
+Utilize the Twitter API to create a single page React application that fetches trending data from Twitter and posts it live. Specifically, we'll be analyzing and using results related to the BLM and George Floyd movement.
