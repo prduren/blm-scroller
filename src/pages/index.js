@@ -1,5 +1,6 @@
 import React from "react";
 import { GridList, GridListTile } from "@material-ui/core";
+import { Waypoint } from "react-waypoint";
 
 const testArray = [
   {
@@ -50,6 +51,7 @@ const IndexPage = () => {
           </GridListTile>
         ))}
       </GridList>
+      <Waypoint onEnter={() => console.log("you have reached the waypoint")} />
     </div>
   );
 };
