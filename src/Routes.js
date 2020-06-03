@@ -1,12 +1,23 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Layout from "./layout/Layout";
 import IndexPage from "./pages";
+import AboutPage from "./pages/about";
+import DonatePage from "./pages/donate";
 
 const Routes = (
-  <Switch>
-    <Route path="/" exact>
-      <IndexPage />
-    </Route>
-  </Switch>
+  <Layout>
+    <Switch>
+      <Route path="/" exact>
+        <IndexPage />
+      </Route>
+      <Route path="/about">
+        <AboutPage />
+      </Route>
+      <Route path="/donate">
+        <DonatePage />
+      </Route>
+    </Switch>
+  </Layout>
 );
 export default Routes;

@@ -1,18 +1,24 @@
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import Link from "../components/Link";
 
 function Layout({ children }) {
+  const history = useHistory();
+
+  function goHome() {
+    history.push("/");
+  }
+
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="headline" color="inherit">
-            Black Lives Matter
-          </Typography>
+          <Button onClick={goHome}>
+            <Typography color="inherit">Black Lives Matter</Typography>{" "}
+          </Button>
         </Toolbar>
       </AppBar>
-      <Link to="/">home</Link>
       <Link to="/about">about</Link>
       <Link to="/donate">donate</Link>
       {children}
