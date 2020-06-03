@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Grid,
-  GridList,
-  GridListTile,
-} from "@material-ui/core";
+import { GridList, GridListTile } from "@material-ui/core";
 
 const testArray = [
   {
@@ -50,15 +43,6 @@ const testArray = [
 const IndexPage = () => {
   return (
     <div>
-      {/* header */}
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="headline" color="inherit">
-            Black Lives Matter
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      {/* content */}
       <GridList style={{ padding: 24 }} cellHeight={300} cols={4}>
         {testArray.map((tile) => (
           <GridListTile cols={1}>
