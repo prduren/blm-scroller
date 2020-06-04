@@ -14,7 +14,7 @@ const donationSites = [
     title: "Reclaim The Block",
     url: "https://www.reclaimtheblock.org/home",
     info:
-      "Reclaim the Block began in 2018 and organizes Minneapolis community and city council members to move money from the police department into other areas of the city’s budget that truly promote community health and safety. We believe health, safety and resiliency exist without police of any kind. We organize around policies that strengthen community-led safety initiatives and reduce reliance on police departments. We do not believe that increased regulation of or public engagement with the police will lead to safer communities, as community testimony and documented police conduct suggest otherwise.",
+      "Reclaim the Block began in 2018 and organizes Minneapolis community and city council members to move money from the police department into other areas of the city’s budget that truly promote community health and safety. We believe health, safety and resiliency exist without police of any kind. We organize around policies that strengthen community-led safety initiatives and reduce reliance on police departments.",
   },
   {
     title: "Black Lives Matter",
@@ -97,16 +97,23 @@ const DonatePage = () => {
       <Typography variant="h1">DONATE</Typography>
       <Typography variant="h4" color="textSecondary">
         Utilize the below links to donate to various movements and organizations
-        related to Black Lives Matter.
+        related to Black Lives Matter
       </Typography>
-      George Floyd Memorial Fund
+      {/* the below GridList maps over donationSites and make a tile for each item with the title, info, and url for each donation site */}
       <GridList style={{ padding: 24 }} cellHeight={200} cols={4}>
         {donationSites.map((item) => (
           <GridListTile cols={1}>
-            <a target="_html" href={item.url}>
+            <a
+              style={{ textDecoration: "none" }}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={item.url}
+            >
               {item.title}
             </a>
-            <Typography paragraph={true}>{item.info}</Typography>
+            <Typography align="left" paragraph={true}>
+              {item.info}
+            </Typography>
           </GridListTile>
         ))}
       </GridList>
