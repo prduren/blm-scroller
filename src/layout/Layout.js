@@ -17,10 +17,15 @@ function Layout({ children }) {
           <Button onClick={goHome}>
             <Typography color="inherit">Black Lives Matter</Typography>{" "}
           </Button>
+          <Link to="/about" color="textSecondary">
+            About
+          </Link>
+          <Link to="/donate" color="textSecondary">
+            Donate
+          </Link>
         </Toolbar>
       </AppBar>
-      <Link to="/about">about</Link>
-      <Link to="/donate">donate</Link>
+
       {children}
     </div>
   );
