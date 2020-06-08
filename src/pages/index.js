@@ -3,6 +3,7 @@ import { GridList, GridListTile } from "@material-ui/core";
 import { Waypoint } from "react-waypoint";
 import useAxios from "axios-hooks";
 import Axios from "axios";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
 const testArray = [
   {
@@ -43,7 +44,23 @@ const testArray = [
   },
 ];
 
-const IndexPage = () => {
+const IndexPage = (props) => {
+  const getGridListCols = () => {
+    if (isWidthUp("xl", props.width)) {
+      return 3;
+    }
+
+    if (isWidthUp("lg", props.width)) {
+      return 3;
+    }
+
+    if (isWidthUp("md", props.width)) {
+      return 2;
+    }
+
+    return 1;
+  };
+
   const [{ data, loading, error, response }] = useAxios(
     {
       method: "GET",
@@ -73,11 +90,15 @@ const IndexPage = () => {
   if (loading) return <div>loading..</div>;
   return (
     <div>
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      </pre> */}
 
-      <GridList style={{ padding: 24 }} cellHeight={300} cols={4}>
+      <GridList
+        style={{ padding: 24 }}
+        cellHeight={400}
+        cols={getGridListCols()}
+      >
         {data.map((url) => (
           <GridListTile key={`img-${url}`} cols={1}>
             <img src={url} alt="placeholder" />
@@ -95,4 +116,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default withWidth()(IndexPage);
