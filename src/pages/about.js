@@ -5,7 +5,14 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 
 const AboutPage = () => {
   return (
-    <div style={{ padding: 24, textAlign: "center" }}>
+    <div
+      style={{
+        padding: 24,
+        textAlign: "center",
+        height: "100vh",
+        width: "100%",
+      }}
+    >
       <Typography variant="h1">ABOUT</Typography>
       <Typography variant="h4" color="textSecondary">
         This project was created to bring more awareness to the Black Lives
