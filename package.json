@@ -15,9 +15,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-waypoint": "^9.0.2",
+    "styled-components": "^5.1.1",
     "styled-media-query": "^2.1.2",
-    "twit": "^2.2.11",
-    "styled-components": "^5.1.1"
+    "twit": "^2.2.11"
   },
   "scripts": {
     "start": "react-scripts start",
