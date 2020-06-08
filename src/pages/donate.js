@@ -1,7 +1,8 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import Link from "../components/Link";
 import { GridList, GridListTile } from "@material-ui/core";
+import styled from "styled-components";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
 const donationSites = [
   {
@@ -14,7 +15,7 @@ const donationSites = [
     title: "Reclaim The Block",
     url: "https://www.reclaimtheblock.org/home",
     info:
-      "Reclaim the Block began in 2018 and organizes Minneapolis community and city council members to move money from the police department into other areas of the city’s budget that truly promote community health and safety. We believe health, safety and resiliency exist without police of any kind. We organize around policies that strengthen community-led safety initiatives and reduce reliance on police departments.",
+      "A coalition to demand that Minneapolis divest from policing and invest in long-term alternatives that promote healthier, safer, more diverse communities.",
   },
   {
     title: "Black Lives Matter",
@@ -90,35 +91,71 @@ const donationSites = [
   },
 ];
 
-const DonatePage = () => {
+const Wrapper = styled.div`
+  padding: 24px;
+  text-align: center;
+`;
+
+const StyledDiv = styled.div`
+  background: ${({ theme }) => theme.colors.tertiary};
+  border-radius: 10px;
+  border: ${({ theme }) => `5px solid ${theme.colors.primary}`};
+`;
+
+const DonatePage = (props) => {
+  // this function uses isWidthUp from material-ui to check the size of the screen and change the cols prop in GridList. It will resize each tile as necessary. Don't forget to export withWidth() at the bottom of the page as is shown.
+  const getGridListCols = () => {
+    if (isWidthUp("xl", props.width)) {
+      return 4;
+    }
+
+    if (isWidthUp("lg", props.width)) {
+      return 3;
+    }
+
+    if (isWidthUp("md", props.width)) {
+      return 2;
+    }
+
+    return 1;
+  };
+
   return (
-    <div style={{ padding: 24, textAlign: "center" }}>
-      {" "}
+    <Wrapper>
       <Typography variant="h1">DONATE</Typography>
       <Typography variant="h4" color="textSecondary">
         Utilize the below links to donate to various movements and organizations
         related to Black Lives Matter
       </Typography>
-      {/* the below GridList maps over donationSites and make a tile for each item with the title, info, and url for each donation site */}
-      <GridList style={{ padding: 24 }} cellHeight={200} cols={4}>
+      <GridList
+        style={{ padding: 24 }}
+        cellHeight={"100%"}
+        cols={getGridListCols()}
+      >
         {donationSites.map((item, index) => (
-          <GridListTile key={`item-${index}`} cols={1}>
-            <a
-              style={{ textDecoration: "none" }}
-              rel="noopener noreferrer"
-              target="_blank"
-              href={item.url}
-            >
-              {item.title}
-            </a>
-            <Typography align="left" paragraph={true}>
-              {item.info}
-            </Typography>
-          </GridListTile>
+          <StyledDiv>
+            <GridListTile key={`item-${index}`} cols={1}>
+              <a
+                style={{ textDecoration: "none" }}
+                rel="noopener noreferrer"
+                target="_blank"
+                href={item.url}
+              >
+                <Typography variant="h6">{item.title}</Typography>
+              </a>
+              <Typography
+                style={{ padding: "10px" }}
+                align="left"
+                paragraph={true}
+              >
+                {item.info}
+              </Typography>
+            </GridListTile>
+          </StyledDiv>
         ))}
       </GridList>
-    </div>
+    </Wrapper>
   );
 };
 
-export default DonatePage;
+export default withWidth()(DonatePage);
