@@ -45,8 +45,8 @@ const IndexPage = () => {
   return (
     <div>
       <GridList style={{ padding: 24 }} cellHeight={300} cols={4}>
-        {testArray.map((tile) => (
-          <GridListTile cols={1}>
+        {testArray.map((tile, index) => (
+          <GridListTile key={`img-${index}`} cols={1}>
             <img src={tile.image} alt="placeholder" />
           </GridListTile>
         ))}

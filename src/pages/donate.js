@@ -101,8 +101,8 @@ const DonatePage = () => {
       </Typography>
       {/* the below GridList maps over donationSites and make a tile for each item with the title, info, and url for each donation site */}
       <GridList style={{ padding: 24 }} cellHeight={200} cols={4}>
-        {donationSites.map((item) => (
-          <GridListTile cols={1}>
+        {donationSites.map((item, index) => (
+          <GridListTile key={`item-${index}`} cols={1}>
             <a
               style={{ textDecoration: "none" }}
               rel="noopener noreferrer"
