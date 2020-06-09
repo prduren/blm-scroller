@@ -101,7 +101,11 @@ const IndexPage = (props) => {
       >
         {data.map((url) => (
           <GridListTile key={`img-${url}`} cols={1}>
-            <img src={url} alt="placeholder" />
+            <img
+              style={{ height: "100%", width: "100%" }}
+              src={url}
+              alt="placeholder"
+            />
           </GridListTile>
         ))}
 
