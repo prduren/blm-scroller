@@ -12,13 +12,13 @@ const Wrapper = styled.div`
     margin-right: 1rem;
     margin-left: 1rem;
     text-decoration: none;
-    color: darkslategray;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 const StyledDiv = styled.div`
-  background: ${({ theme }) => theme.colors.tertiary};
-  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.secondary};
+  border-radius: 5px;
   border: ${({ theme }) => `2px solid ${theme.colors.tertiary}`};
 `;
 
@@ -31,19 +31,15 @@ function Layout({ children }) {
 
   return (
     <Wrapper>
-      <AppBar position="static">
+      <AppBar color="tertiary" position="static">
         <Toolbar>
           <StyledDiv>
             <Button onClick={goHome}>
               <Typography color="inherit">Black Lives Matter</Typography>{" "}
             </Button>
           </StyledDiv>
-          <Link to="/donate" color="textSecondary">
-            Donate
-          </Link>
-          <Link to="/about" color="textSecondary">
-            About
-          </Link>
+          <Link to="/donate">Donate</Link>
+          <Link to="/about">About</Link>
         </Toolbar>
       </AppBar>
       {children}
