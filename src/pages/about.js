@@ -27,8 +27,26 @@ const AboutPage = () => {
         This site was created with create-react-app, Material-UI, Twitter API,
         and more. Take a look at the source code to find out more.
       </Typography>
-      <GitHubIcon />
-      <TwitterIcon />
+      <div align="left">
+        <a
+          href="https://github.com/prduren/blm-scroller"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          source code:
+          <GitHubIcon />
+        </a>
+      </div>
+      <div align="left">
+        <a
+          href="https://developer.twitter.com/en/docs"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          twitter API:
+          <TwitterIcon />
+        </a>
+      </div>
     </div>
   );
 };
