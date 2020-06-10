@@ -2,6 +2,7 @@ import React from "react";
 import {
   GridList,
   GridListTile,
+  GridListTileBar,
   Box,
   isWidthUp,
   withWidth,
@@ -36,7 +37,8 @@ const IndexPage = (props) => {
         ...Axios.defaults.transformResponse,
         (data) => {
           let tweets = data.data.statuses.filter(
-            (tweet) => tweet.entities.media !== undefined
+            (tweet) =>
+              tweet.entities.media !== undefined && !tweet.text.includes("RT")
           );
 
           return tweets;
@@ -62,17 +64,21 @@ const IndexPage = (props) => {
         {data.map((tweet) => {
           console.log("tweet: ", tweet);
           return tweet.entities.media.map((e, i) => (
-            <GridListTile key={`img-${i}`} cols={1}>
-              <Img src={e.media_url_https} alt="placeholder" />
-            </GridListTile>
+            <Box
+              component={GridListTile}
+              border="2px solid black"
+              p={0}
+              key={`img-${i}`}
+              cols={1}
+            >
+              <Img width="100%" src={e.media_url_https} alt="placeholder" />
+              <GridListTileBar
+                title={tweet.text}
+                subtitle="#hashtag #anotherHashtag"
+              ></GridListTileBar>
+            </Box>
           ));
         })}
-
-        {/* {testArray.map((tile, index) => (
-          <GridListTile key={`img-${index}`} cols={1}>
-            <img src={tile.image} alt="placeholder" />
-          </GridListTile>
-        ))} */}
       </Box>
       <Waypoint onEnter={() => console.log("you have reached the waypoint")} />
     </>
