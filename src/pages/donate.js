@@ -122,7 +122,7 @@ const DonatePage = (props) => {
 
   return (
     <Wrapper>
-      <Typography variant="h1">DONATE</Typography>
+      <Typography variant="h2">DONATE</Typography>
       <Typography variant="h4" color="textSecondary">
         Utilize the below links to donate to various movements and organizations
         related to Black Lives Matter

@@ -1,5 +1,5 @@
 import React from "react";
-import { GridList, GridListTile } from "@material-ui/core";
+import { GridList, GridListTile, Box } from "@material-ui/core";
 import { Waypoint } from "react-waypoint";
 import useAxios from "axios-hooks";
 import Axios from "axios";
@@ -89,20 +89,26 @@ const IndexPage = (props) => {
   console.log("response: ", response);
   if (loading) return <div>loading..</div>;
   return (
-    <div>
+    <>
       {/* <pre>
         <code>{JSON.stringify(data, null, 2)}</code>
       </pre> */}
-
-      <GridList
-        style={{ padding: 24 }}
+      <Box
+        component={GridList}
+        style={{ padding: "40px" }}
         cellHeight={400}
         cols={getGridListCols()}
+        width="100vw"
+        maxWidth="100vw"
       >
         {data.map((url) => (
           <GridListTile key={`img-${url}`} cols={1}>
             <img
-              style={{ height: "100%", width: "100%" }}
+              style={{
+                height: "100%",
+                width: "100%",
+                border: "5px solid black",
+              }}
               src={url}
               alt="placeholder"
             />
@@ -114,9 +120,9 @@ const IndexPage = (props) => {
             <img src={tile.image} alt="placeholder" />
           </GridListTile>
         ))} */}
-      </GridList>
+      </Box>
       <Waypoint onEnter={() => console.log("you have reached the waypoint")} />
-    </div>
+    </>
   );
 };
 

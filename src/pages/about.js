@@ -13,7 +13,7 @@ const AboutPage = () => {
         width: "100%",
       }}
     >
-      <Typography variant="h1">ABOUT</Typography>
+      <Typography variant="h2">ABOUT</Typography>
       <Typography variant="h4" color="textSecondary">
         This project was created to bring more awareness to the Black Lives
         Matter movement. No frill, no ads, no distractions, and strictly
