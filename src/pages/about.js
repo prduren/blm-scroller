@@ -5,8 +5,15 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 
 const AboutPage = () => {
   return (
-    <div style={{ padding: 24, textAlign: "center" }}>
-      <Typography variant="h1">ABOUT</Typography>
+    <div
+      style={{
+        padding: 24,
+        textAlign: "center",
+        height: "100vh",
+        width: "100%",
+      }}
+    >
+      <Typography variant="h2">ABOUT</Typography>
       <Typography variant="h4" color="textSecondary">
         This project was created to bring more awareness to the Black Lives
         Matter movement. No frill, no ads, no distractions, and strictly
@@ -20,8 +27,26 @@ const AboutPage = () => {
         This site was created with create-react-app, Material-UI, Twitter API,
         and more. Take a look at the source code to find out more.
       </Typography>
-      <GitHubIcon />
-      <TwitterIcon />
+      <div align="left">
+        <a
+          href="https://github.com/prduren/blm-scroller"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          source code:
+          <GitHubIcon />
+        </a>
+      </div>
+      <div align="left">
+        <a
+          href="https://developer.twitter.com/en/docs"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          twitter API:
+          <TwitterIcon />
+        </a>
+      </div>
     </div>
   );
 };

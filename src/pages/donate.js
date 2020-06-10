@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { GridList, GridListTile } from "@material-ui/core";
+import { GridList, GridListTile, Tooltip } from "@material-ui/core";
 import styled from "styled-components";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
@@ -99,7 +99,7 @@ const Wrapper = styled.div`
 const StyledDiv = styled.div`
   background: ${({ theme }) => theme.colors.tertiary};
   border-radius: 10px;
-  border: ${({ theme }) => `5px solid ${theme.colors.primary}`};
+  border: ${({ theme }) => `5px solid ${theme.colors.secondary}`};
 `;
 
 const DonatePage = (props) => {
@@ -122,7 +122,7 @@ const DonatePage = (props) => {
 
   return (
     <Wrapper>
-      <Typography variant="h1">DONATE</Typography>
+      <Typography variant="h2">DONATE</Typography>
       <Typography variant="h4" color="textSecondary">
         Utilize the below links to donate to various movements and organizations
         related to Black Lives Matter
@@ -141,8 +141,11 @@ const DonatePage = (props) => {
                 target="_blank"
                 href={item.url}
               >
-                <Typography variant="h6">{item.title}</Typography>
+                <Tooltip title="Go To" aria-label="go to" placement="top">
+                  <Typography variant="h6">{item.title}</Typography>
+                </Tooltip>
               </a>
+
               <Typography
                 style={{ padding: "10px" }}
                 align="left"

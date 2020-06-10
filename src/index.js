@@ -6,6 +6,8 @@ import { createBrowserHistory } from "history";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core";
 import theme from "./utils/theme";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import "./index.css";
+
 const history = createBrowserHistory();
 
 ReactDOM.render(
