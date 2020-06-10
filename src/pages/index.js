@@ -3,45 +3,7 @@ import { GridList, GridListTile } from "@material-ui/core";
 import { Waypoint } from "react-waypoint";
 import useAxios from "axios-hooks";
 import Axios from "axios";
-
-const testArray = [
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    image: "https://picsum.photos/200/300",
-  },
-];
+import { Img } from "react-image";
 
 const IndexPage = () => {
   const [{ data, loading, error, response }] = useAxios(
@@ -51,18 +13,11 @@ const IndexPage = () => {
       transformResponse: [
         ...Axios.defaults.transformResponse,
         (data) => {
-          let images = [];
-
           let tweets = data.data.statuses.filter(
             (tweet) => tweet.entities.media !== undefined
           );
 
-          tweets.forEach((tweet) => {
-            tweet.entities.media.forEach((obj) => {
-              images.push(obj.media_url_https);
-            });
-          });
-          return images;
+          return tweets;
         },
       ],
     },
@@ -72,26 +27,20 @@ const IndexPage = () => {
   console.log("response: ", response);
   if (loading) return <div>loading..</div>;
   return (
-    <div>
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
-
+    <>
       <GridList style={{ padding: 24 }} cellHeight={300} cols={4}>
-        {data.map((url) => (
-          <GridListTile key={`img-${url}`} cols={1}>
-            <img src={url} alt="placeholder" />
-          </GridListTile>
-        ))}
-
-        {/* {testArray.map((tile, index) => (
-          <GridListTile key={`img-${index}`} cols={1}>
-            <img src={tile.image} alt="placeholder" />
-          </GridListTile>
-        ))} */}
+        {/* Mapping through tweet objects */}
+        {data.map((tweet) => {
+          console.log("tweet: ", tweet);
+          return tweet.entities.media.map((e, i) => (
+            <GridListTile key={`img-${i}`} cols={i % 2 === 0 ? 1 : 2}>
+              <Img src={e.media_url_https} alt="placeholder" />
+            </GridListTile>
+          ));
+        })}
       </GridList>
       <Waypoint onEnter={() => console.log("you have reached the waypoint")} />
-    </div>
+    </>
   );
 };
 
