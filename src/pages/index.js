@@ -34,10 +34,11 @@ const StyledWrapper = styled.div`
 
 const IndexPage = (props) => {
   const [modalState, setModalState] = useState(false);
-  const manageModalState = () => {
+  const manageModalState = (e) => {
+    // our modal needs to have it's content changed to e.target on click, but I can't figure out how. help????
+    console.log(e.target);
     setModalState(!modalState);
   };
-
   const getGridListCols = () => {
     if (isWidthUp("xl", props.width)) {
       return 3;
@@ -96,7 +97,7 @@ const IndexPage = (props) => {
               p={0}
               key={`img-${i}`}
               cols={1}
-              onClick={() => manageModalState()}
+              onClick={manageModalState}
             >
               <Img width="100%" src={e.media_url_https} alt="placeholder" />
               <GridListTileBar
