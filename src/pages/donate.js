@@ -136,7 +136,7 @@ const DonatePage = (props) => {
           <StyledDiv>
             <GridListTile key={`item-${index}`} cols={1}>
               <a
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "underline" }}
                 rel="noopener noreferrer"
                 target="_blank"
                 href={item.url}

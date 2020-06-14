@@ -3,7 +3,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Link from "../components/Link";
-import Pattern from "../images/patterns.png";
 
 const Wrapper = styled.div`
   background: ${(props) => {
@@ -44,7 +43,6 @@ function Layout({ children }) {
         </Toolbar>
         <Typography
           style={{
-            backgroundImage: "url(" + Pattern + ")",
             paddingLeft: "2rem",
           }}
           variant="h1"
