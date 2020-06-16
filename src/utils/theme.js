@@ -1,9 +1,9 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 const colors = {
-  primary: "#ffcb47",
-  secondary: "#8aa1b1",
-  tertiary: "#4a5043",
+  primary: "#ff3333",
+  secondary: "#5c85d6",
+  tertiary: " #9494b8",
 };
 
 let theme = createMuiTheme({

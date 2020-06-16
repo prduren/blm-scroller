@@ -24,7 +24,7 @@ const StyledDiv = styled.div`
 
 function Layout({ children }) {
   const history = useHistory();
-
+  console.log(children);
   function goHome() {
     history.push("/");
   }
