@@ -6,6 +6,90 @@ import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 
 const donationSites = [
   {
+    title: "Black & Brown Founders",
+    url: "https://blackandbrownfounders.com/",
+    info:
+      "We provide community, education, and access to Black and Latinx entrepreneurs, allowing them to launch and build tech businesses with modest resources.",
+  },
+  {
+    title: "Black Table Arts",
+    url: "http://www.blacktablearts.com/",
+    info:
+      "Gathering black communities through the arts, towards better black futures.",
+  },
+  {
+    title: "Embrace Race",
+    url: "https://www.embracerace.org/?",
+    info:
+      "Let’s Raise a Generation of Children Who Are Thoughtful, Informed, and Brave About Race.",
+  },
+  {
+    title: "Mutual Aid Hub",
+    url: "https://www.mutualaidhub.org/",
+    info:
+      "Highlight the incredible work of mutual aid organizers around the country, and to facilitate connections and shared strategies in this growing movement of community support.",
+  },
+  {
+    title: "Minnesota Rapid Response Coalition",
+    url: "http://www.wearemrrc.com/",
+    info:
+      "Committed to rapidly responding to community crisis in the Minnesota.",
+  },
+  {
+    title: "Breonna Taylor GoFundMe",
+    url: "https://www.gofundme.com/f/9v4q2-justice-for-breonna-taylor",
+    info:
+      "GoFundMe for Breonna Taylor, woman shot and killed by officers executing no-knock search warrant.",
+  },
+  {
+    title: "I Run With Maud",
+    url: "https://www.gofundme.com/f/i-run-with-maud",
+    info:
+      "GoFundMe for Ahmaud Arbery, unarmed man shot and killed while jogging.",
+  },
+  {
+    title: "Rayshard Brooks GoFundMe",
+    url: "https://www.gofundme.com/f/official-gofundme-for-rayshard-brooks",
+    info:
+      "GoFundMe for Rayshard Brooks, man shot and killed in Atlanta in the back by police.",
+  },
+  {
+    title: "Integrate NYC",
+    url: "https://www.integratenyc.org/",
+    info:
+      "A youth-led organization that stands for integration and equity in New York City schools.",
+  },
+  {
+    title: "D.R.E.A.M.",
+    url: "http://dream-usa.org/our-organization",
+    info: "Developing Responsible Economically Advanced Model-Citizens",
+  },
+  {
+    title: "Autistic People of Color Fund",
+    url: "https://autismandrace.com/autistic-people-of-color-fund/",
+    info:
+      "Gofund me for the Floyd family in order to establish funeral and burial expenses, mental and grief counseling, lodging and travel for all court proceedings, etc.",
+  },
+  {
+    title: "ACLU Racial Justice",
+    url: "https://www.aclu.org/issues/racial-justice",
+    info:
+      "Aims to preserve and extend constitutionally guaranteed rights to people who have historically been denied their rights on the basis of race. ",
+  },
+  {
+    title: "Color of Change",
+    url:
+      "https://secure.actblue.com/contribute/page/support-us?refcode=coc_website_popup",
+    info:
+      "Gofund me for the Floyd family in order to establish funeral and burial expenses, mental and grief counseling, lodging and travel for all court proceedings, etc.",
+  },
+  {
+    title: "Advancement Project",
+    url: "https://advancementproject.org/",
+    info:
+      "Rooted in the great human rights struggles for equality and justice. We exist to fulfill America's promise of a caring, inclusive and just democracy.",
+  },
+  {
     title: "George Floyd Memorial Fund",
     url: "https://www.gofundme.com/f/georgefloyd",
     info:
@@ -94,6 +178,8 @@ const donationSites = [
 const Wrapper = styled.div`
   padding: 24px;
   text-align: center;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const StyledDiv = styled.div`
@@ -122,8 +208,13 @@ const DonatePage = (props) => {
 
   return (
     <Wrapper>
-      <Typography variant="h2">DONATE</Typography>
-      <Typography variant="h4" color="textSecondary">
+      <Typography
+        fontFamily={`${({ theme }) => theme.typography.fontFamily.Roboto}`}
+        variant="h2"
+      >
+        DONATE
+      </Typography>
+      <Typography fontFamily="Roboto" variant="h4" color="textSecondary">
         Utilize the below links to donate to various movements and organizations
         related to Black Lives Matter
       </Typography>
