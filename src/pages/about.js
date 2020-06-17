@@ -20,7 +20,8 @@ const AboutPage = () => {
         padding: 24,
         textAlign: "center",
         height: "100vh",
-        width: "100%",
+        width: "90%",
+        margin: "0 auto",
       }}
     >
       <Typography variant="h2">ABOUT</Typography>

@@ -31,7 +31,7 @@ function Layout({ children }) {
 
   return (
     <Wrapper>
-      <AppBar color="tertiary" position="static">
+      <AppBar color="default" position="static">
         <Toolbar style={{ borderBottom: "2px solid black" }}>
           <StyledDiv>
             <Button onClick={goHome}>
@@ -57,7 +57,7 @@ function Layout({ children }) {
           bottom: "1px",
           right: "1px",
         }}
-        class="creators"
+        className="creators"
       >
         <p style={{ paddingLeft: "0 2rem", fontSize: "1.5rem", margin: 0 }}>
           creators:
